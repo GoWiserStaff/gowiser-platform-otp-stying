@@ -8,7 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <style id="common">
-
     @font-face {
       font-family: 'SegoeUI';
       src: url(https://login.gowiser.com/static/tenant/templates/fonts/segoeui.WOFF);
@@ -112,7 +111,7 @@
     }
 
     .buttons #cancel:before {
-      content: url(https://login.gowiser.com/static/tenant/templates/images/left-arrow.svg);
+      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 16 16'%3E%3C!-- Icon from HeroIcons by Refactoring UI Inc - https://github.com/tailwindlabs/heroicons/blob/master/LICENSE --%3E%3Cpath fill='currentColor' fill-rule='evenodd' d='M9.78 4.22a.75.75 0 0 1 0 1.06L7.06 8l2.72 2.72a.75.75 0 1 1-1.06 1.06L5.47 8.53a.75.75 0 0 1 0-1.06l3.25-3.25a.75.75 0 0 1 1.06 0' clip-rule='evenodd'/%3E%3C/svg%3E");
     }
   </style>
   <style id="idpselector">
@@ -214,6 +213,15 @@
       margin-bottom: 20px
     }
 
+    .col-lg-5 {
+      max-width: 384px;
+      width: 100%;
+      float: none;
+      display: inline-block;
+      vertical-align: top;
+      padding: 0
+    }
+
     .col-lg-6 {
       max-width: 470px;
       width: 100%;
@@ -238,8 +246,23 @@
       padding: 5px 8px;
       overflow: hidden;
       background-color: #fff;
-      border-radius: 3px;
+      border-radius: 8px;
+      border: 1px solid #d4d4d4;
       font-style: italic
+    }
+
+    #simplemodal-container .simplemodal-data::before {
+      content: "";
+      display: block;
+      width: 32px;
+      height: 32px;
+      color: #38a6d3;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3C!-- Icon from SVG Spinners by Utkarsh Verma - https://github.com/n3r4zzurr0/svg-spinners/blob/main/LICENSE --%3E%3Cg stroke='%2338a6d3'%3E%3Ccircle cx='12' cy='12' r='9.5' fill='none' stroke-linecap='round' stroke-width='3'%3E%3Canimate attributeName='stroke-dasharray' calcMode='spline' dur='1.5s' keySplines='0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1' keyTimes='0;0.475;0.95;1' repeatCount='indefinite' values='0 150;42 150;42 150;42 150'/%3E%3Canimate attributeName='stroke-dashoffset' calcMode='spline' dur='1.5s' keySplines='0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1' keyTimes='0;0.475;0.95;1' repeatCount='indefinite' values='0;-16;-59;-59'/%3E%3C/circle%3E%3CanimateTransform attributeName='transform' dur='2s' repeatCount='indefinite' type='rotate' values='0 12 12;360 12 12'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 100% 100%;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      position: relative;
+      margin: 10px auto;
     }
 
     #LocalAccountSigninEmailExchange,
@@ -328,6 +351,10 @@
       margin-top: 10px
     }
 
+    .buttons button:first-child {
+      margin-top: 0 !important;
+    }
+
     .buttons button:hover {
       background-color: #38a7d3da;
     }
@@ -350,15 +377,17 @@
     }
 
     .buttons #cancel {
-      padding: 0;
+      padding: 0 8px 0 0;
       margin-left: auto;
       background: 0 0;
       border: 0;
+      height: 32px;
       width: inherit;
       position: absolute;
       background-color: transparent;
-      top: 2px;
-      left: 15px;
+      top: 0px;
+      left: 10px;
+      align-items: center;
       font-size: 1em;
       color: #505050;
       box-shadow: none;
@@ -366,13 +395,20 @@
     }
 
     .buttons #cancel:hover {
+      background-color: rgba(0, 0, 0, 0.07) !important;
+      color: #000 !important
+    }
+
+    .buttons #cancel:active {
+      background-color: rgba(0, 0, 0, 0.1) !important;
+      transform: scale(0.95);
       color: #000 !important
     }
 
     .buttons #cancel:before {
-      padding: 10px;
+      padding: 0px 4px;
       vertical-align: sub;
-      zoom: 90%;
+      zoom: 100%;
       display: inline-block
     }
 
@@ -964,12 +1000,6 @@
       .container {
         background-color: #fff
       }
-
-      .container .row .panel-default {
-        border-radius: 0;
-        border: none;
-        box-shadow: none
-      }
     }
 
     @media only screen and (max-width: 350px) {
@@ -993,7 +1023,7 @@
       }
     }
 
-    
+
     .background_branding_container {
       background-image: url('./GoWiser-552A1956-HighRes.webp');
       background-size: cover;
@@ -1007,7 +1037,7 @@
     /* Following are generated styles via gulp. */
     /* inject: css */
     .self_asserted_container .row .panel-default {
-      padding: 40px 30px;
+      padding: 32px 16px;
       margin: auto;
       height: 100%;
       background-color: #fff
@@ -1015,7 +1045,7 @@
 
     .self_asserted_container .row .panel-default .panel-body {
       margin: 0 auto;
-      max-width: 380px;
+      max-width: 320px;
       width: auto;
       padding: 0
     }
@@ -1045,6 +1075,7 @@
     }
 
     .self_asserted_container .row .panel-default .panel-body #api #attributeVerification .pageLevel {
+      margin-top: 12px;
       color: #b00;
       text-align: left
     }
@@ -1312,7 +1343,7 @@
       }
     }
 
-    
+
     .container {
       background-image: url('./GoWiser-552A1956-HighRes.webp');
       background-size: cover;
@@ -1329,7 +1360,7 @@
     }
 
     .gw-logo {
-      margin: 0 auto;
+      margin: 0 auto 16px auto;
       height: 56px;
       width: 56px;
       background-image: url('gw-logo-blue-black.svg');
@@ -1337,10 +1368,42 @@
       background-position: 50%;
       background-repeat: no-repeat;
     }
+
     /* endinject */
 
     .input {
       height: 46px !important;
+    }
+
+    .footer {
+      margin-top: 24px;
+      color: #989c9e;
+      font-size: 12px;
+    }
+
+    .footer a {
+      color: #38a6d3;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: #38a6d3;
+      text-decoration: underline;
+    }
+
+    .gw-title h1 { 
+      margin-bottom: 4px;
+      margin-top: 0;
+      line-height: 28px;
+      font-size: 18px;
+      color: #151616;
+    }
+
+    .gw-title p {
+      line-height: 20px;
+      font-size: 14px;
+      color: #525455;
     }
   </style>
 </head>
@@ -1352,11 +1415,21 @@
   </div>
   <div class="container  self_asserted_container " role="presentation">
     <div class="row" style="backdrop-filter: blur(5px);">
-      <div class="col-lg-6">
+      <div class="col-lg-5">
         <div class="gw-panel panel panel-default">
           <div class="panel-body">
             <div class="gw-logo"></div>
+            <div class="gw-title">
+              <h1>
+                Welcome to GoWiser
+              </h1>
+              <p>Reshape The Future Of Audit</p>
+            </div>
             <div id="api" role="main"></div>
+            <footer class="footer">
+              New to GoWiser?
+              <a href="https://welcome.gowiser.com/" target="_blank">Learn More</a>
+            </footer>
           </div>
         </div>
       </div>
