@@ -415,7 +415,7 @@
 
     #attributeList ul li {
       list-style: none;
-      margin: 1rem 0
+      margin-top: 1.25rem;
     }
 
     legend {
@@ -471,10 +471,10 @@
     }
 
     #attributeList ul li input {
-      height: 46px;
+      height: 42px;
       width: 70%;
       border-radius: .5rem;
-      text-indent: 20px;
+      text-indent: 12px;
       border-color: #d4d4d4;
       background-color: #fff !important;
       background-image: none !important;
@@ -482,7 +482,8 @@
     }
 
     #attributeList ul li input::-webkit-input-placeholder {
-      text-indent: 20px
+      text-indent: 12px;
+      color: #8a8989
     }
 
     #attributeList ul li .attrEntry.validate input.invalid,
@@ -1401,6 +1402,23 @@
       line-height: 20px;
       font-size: 14px;
       color: #525455;
+    }
+
+    #email_label {
+      display: none !important;
+    }
+
+    #otpToVerify_label {
+      display: none !important;
+    }
+
+    #attributeList:has(#otpToVerify)::after {
+      content: "Please enter the verification code sent to your email.";
+      display: block;
+      font-size: 12px;
+      color: #525455;
+      margin-bottom: 1rem;
+      text-align: center;
     }
   </style>
 </head>
