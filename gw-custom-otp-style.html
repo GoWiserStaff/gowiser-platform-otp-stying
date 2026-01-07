@@ -1412,14 +1412,28 @@
       display: none !important;
     }
 
-    #attributeList:has(#otpToVerify)::after {
-      content: "Please enter the verification code sent to your email.";
+    #attributeList:has(#otpToVerify) ul {
+      margin-bottom: 1.25rem;
+    }
+
+    #attributeList:has(#otpToVerify) ul::after {
+      content: "Didn’t get the email? Please check your spam folder.";
+      display: block;
+      font-size: 12px;
+      margin-top: 1rem;
+      color: #525455;
+      text-align: center;
+    }
+
+    /* #attributeList:has(#otpToVerify)::after {
+      content: "If you don’t see the email, please check your spam folder";
       display: block;
       font-size: 12px;
       color: #525455;
-      margin-bottom: 1rem;
+      opacity: 0.9;
+      margin-bottom: 1.25rem;
       text-align: center;
-    }
+    } */
   </style>
 </head>
 
